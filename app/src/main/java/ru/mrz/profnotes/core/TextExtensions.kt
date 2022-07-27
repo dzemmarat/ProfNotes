@@ -8,7 +8,8 @@ fun CharSequence.spanString(startIndex: Int, endIndex: Int, color: Int): Spannab
     val spannable = this.toSpannable()
     spannable.setSpan(
         ForegroundColorSpan(color),
-        startIndex, endIndex,
+        startIndex,
+        endIndex,
         Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
     )
     return spannable
