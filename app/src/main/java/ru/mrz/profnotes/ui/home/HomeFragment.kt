@@ -4,28 +4,70 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.viewpager2.widget.MarginPageTransformer
+import ru.mrz.profnotes.data.model.MyNote
+import ru.mrz.profnotes.data.model.NewNote
 import ru.mrz.profnotes.databinding.FragmentHomeBinding
+import ru.mrz.profnotes.ui.home.adapter.MyNotesAdapter
+import ru.mrz.profnotes.ui.home.adapter.NewNotesAdapter
 
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
+
+    private val viewPagerAdapter by lazy { NewNotesAdapter() }
+    private val myNotesAdapter by lazy { MyNotesAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
-
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-        return root
+        return binding.root
+    }
+
+    override fun onStart() {
+        super.onStart()
+        setupPager()
+        setupMyNotes()
+    }
+
+    private fun setupMyNotes() {
+        with(binding) {
+            rvMyNotes.adapter = myNotesAdapter
+            rvMyNotes.layoutManager = object : LinearLayoutManager(requireContext()) {
+                override fun canScrollVertically() = false
+            }
+
+            myNotesAdapter.setItems(listOf(
+                MyNote(
+                    id = 1,
+                    title = "Test",
+                    date = "Today",
+                    status = "New",
+                    description = "Test"
+                )
+            ))
+        }
+    }
+
+    private fun setupPager() {
+        with(binding) {
+            viewPagerAdapter.setItems(listOf(
+                NewNote(
+                    id = 1,
+                    title = "Sample title",
+                    date = "today",
+                    description = "Start learning"
+                )
+            ))
+
+            vpNewNotes.adapter = viewPagerAdapter
+        }
     }
 
     override fun onDestroyView() {

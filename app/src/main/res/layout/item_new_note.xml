@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="136dp"
+    android:layout_height="match_parent"
     android:background="@drawable/bg_new_note">
 
     <com.makeramen.roundedimageview.RoundedImageView
@@ -60,7 +60,7 @@
         android:layout_marginTop="9dp"
         android:ellipsize="end"
         android:ems="3"
-        android:maxLines="2"
+        android:maxLines="1"
         android:text="Первое занятие школы разработки, не пропусти"
         app:layout_constraintEnd_toEndOf="@+id/tvTitle"
         app:layout_constraintStart_toStartOf="@+id/ivUser"

@@ -1,12 +1,15 @@
 package ru.mrz.profnotes
 
 import android.os.Bundle
+import android.os.PersistableBundle
+import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import ru.mrz.profnotes.core.gone
 import ru.mrz.profnotes.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -31,5 +34,10 @@ class MainActivity : AppCompatActivity() {
             R.id.navigation_home, R.id.navigation_settings))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        binding.bottomNavigationView.gone()
     }
 }

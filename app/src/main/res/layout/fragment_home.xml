@@ -104,12 +104,12 @@
             style="@style/TextH3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:autofillHints="username"
             android:layout_marginTop="12dp"
+            android:autofillHints="username"
             android:background="@drawable/bg_login_edit_text"
-            android:hint="@string/hintSearch"
             android:drawableStart="@drawable/ic_search"
             android:drawablePadding="8dp"
+            android:hint="@string/hintSearch"
             android:inputType="text"
             android:padding="12dp"
             android:textColor="@color/white"
@@ -120,25 +120,61 @@
             app:layout_constraintTop_toBottomOf="@+id/tvTodayDescription"
             tools:ignore="TextFields" />
 
-        <TextView
-            android:id="@+id/tvNewNotesLabel"
-            style="@style/TextH1"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:text="@string/labelNewNotes"
-            android:textAllCaps="true"
-            app:layout_constraintEnd_toEndOf="@+id/etSearch"
-            app:layout_constraintStart_toStartOf="@+id/etSearch"
-            app:layout_constraintTop_toBottomOf="@+id/etSearch" />
+            app:layout_constraintTop_toBottomOf="@+id/etSearch">
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:layout_width="0dp"
-            android:layout_height="136dp"
-            android:layout_marginTop="12dp"
-            app:layout_constraintEnd_toEndOf="@+id/tvNewNotesLabel"
-            app:layout_constraintStart_toStartOf="@+id/tvNewNotesLabel"
-            app:layout_constraintTop_toBottomOf="@+id/tvNewNotesLabel" />
+            <TextView
+                android:id="@+id/tvNewNotesLabel"
+                style="@style/TextH1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="28dp"
+                android:text="@string/labelNewNotes"
+                android:textAllCaps="true" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/vpNewNotes"
+                android:layout_width="match_parent"
+                android:layout_height="136dp"
+                android:layout_marginTop="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="28dp"
+                android:layout_marginHorizontal="20dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/TextH1"
+                    android:textAllCaps="true"
+                    android:layout_weight="1"
+                    android:text="@string/labelMyNotes" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="end"
+                    style="@style/TextH4"
+                    android:text="@string/labelShowMyNotes" />
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvMyNotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/item_note"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="12dp"/>
+
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

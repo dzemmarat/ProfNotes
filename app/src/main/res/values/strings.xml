@@ -20,4 +20,6 @@
     <string name="news">Новости</string>
     <string name="hintSearch">Поиск по заметкам</string>
     <string name="labelNewNotes">Новые заметки %1$s</string>
+    <string name="labelMyNotes">Мои задачи %1$s</string>
+    <string name="labelShowMyNotes">Все задачи</string>
 </resources>

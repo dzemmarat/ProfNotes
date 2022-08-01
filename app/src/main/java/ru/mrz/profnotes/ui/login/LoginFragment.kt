@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import ru.mrz.profnotes.R
 import ru.mrz.profnotes.core.spanString
 import ru.mrz.profnotes.databinding.FragmentLoginBinding
@@ -19,7 +20,11 @@ class LoginFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
-        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        _binding = FragmentLoginBinding.inflate(
+            inflater,
+            container,
+            false
+        )
         return binding.root
     }
 
@@ -39,6 +44,10 @@ class LoginFragment : Fragment() {
                 endIndex = 43,
                 color = requireContext().getColor(R.color.yellow)
             )
+        }
+
+        binding.btnLogin.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_navigation_home)
         }
     }
 
