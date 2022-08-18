@@ -6,13 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.viewpager2.widget.MarginPageTransformer
-import ru.mrz.profnotes.data.model.MyNote
+import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import ru.mrz.profnotes.data.model.NewNote
 import ru.mrz.profnotes.databinding.FragmentHomeBinding
 import ru.mrz.profnotes.ui.home.adapter.MyNotesAdapter
 import ru.mrz.profnotes.ui.home.adapter.NewNotesAdapter
+import ru.mrz.profnotes.viewmodel.HomeViewModel
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null

@@ -6,10 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import dagger.hilt.android.AndroidEntryPoint
 import ru.mrz.profnotes.R
-import ru.mrz.profnotes.core.spanString
+import ru.mrz.profnotes.core.extensions.spanString
 import ru.mrz.profnotes.databinding.FragmentLoginBinding
 
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null
