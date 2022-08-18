@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -23,6 +25,8 @@ class HomeFragment : Fragment() {
 
     private val viewPagerAdapter by lazy { NewNotesAdapter() }
     private val myNotesAdapter by lazy { MyNotesAdapter() }
+
+    private val viewModel: HomeViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,31 +50,31 @@ class HomeFragment : Fragment() {
                 override fun canScrollVertically() = false
             }
 
-            myNotesAdapter.setItems(listOf(
-                MyNote(
-                    id = 1,
-                    title = "Test",
-                    date = "Today",
-                    status = "New",
-                    description = "Test"
-                )
-            ))
+            lifecycleScope.launch {
+                viewModel.getNotes().collectLatest {
+                    myNotesAdapter.setItems(it)
+                }
+            }
         }
     }
 
     private fun setupPager() {
-        with(binding) {
-            viewPagerAdapter.setItems(listOf(
-                NewNote(
-                    id = 1,
-                    title = "Sample title",
-                    date = "today",
-                    description = "Start learning"
-                )
-            ))
+        viewPagerAdapter.setItems(listOf(
+            NewNote(
+                id = 1,
+                title = "Sample title",
+                date = "today",
+                description = "Start learning"
+            ),
+            NewNote(
+                id = 1,
+                title = "Sample title",
+                date = "today",
+                description = "Start learning"
+            )
+        ))
 
-            vpNewNotes.adapter = viewPagerAdapter
-        }
+        binding.vpNewNotes.adapter = viewPagerAdapter
     }
 
     override fun onDestroyView() {
