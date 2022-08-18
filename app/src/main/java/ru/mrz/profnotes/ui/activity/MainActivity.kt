@@ -1,17 +1,19 @@
 package ru.mrz.profnotes.ui.activity
 
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.view.View
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import ru.mrz.profnotes.core.gone
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.shape.CornerFamily
+import com.google.android.material.shape.MaterialShapeDrawable
+import dagger.hilt.android.AndroidEntryPoint
+import ru.mrz.profnotes.R
 import ru.mrz.profnotes.databinding.ActivityMainBinding
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
@@ -38,6 +40,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        binding.bottomNavigationView.gone()
+        val radius = resources.getDimension(R.dimen.default_corner_radius)
+        val bottomAppBar = binding.bottomAppBar
+
+        val bottomBarBackground = bottomAppBar.background as MaterialShapeDrawable
+        bottomBarBackground.shapeAppearanceModel = bottomBarBackground.shapeAppearanceModel
+            .toBuilder()
+            .setAllCorners(CornerFamily.ROUNDED, radius)
+            .build()
     }
 }
