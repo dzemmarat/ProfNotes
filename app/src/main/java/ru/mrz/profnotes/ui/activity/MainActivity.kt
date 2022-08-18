@@ -1,4 +1,4 @@
-package ru.mrz.profnotes
+package ru.mrz.profnotes.ui.activity
 
 import android.os.Bundle
 import android.os.PersistableBundle

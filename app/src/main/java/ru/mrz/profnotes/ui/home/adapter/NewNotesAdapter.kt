@@ -29,11 +29,11 @@ class NewNotesAdapter : RecyclerView.Adapter<NewNotesAdapter.ViewHolder>() {
         holder.bind(items[position])
     }
 
+    override fun getItemCount(): Int = items.size
+
     @SuppressLint("NotifyDataSetChanged")
     fun setItems(newItems: List<NewNote>) {
         items = newItems
         notifyDataSetChanged()
     }
-
-    override fun getItemCount(): Int = items.size
 }

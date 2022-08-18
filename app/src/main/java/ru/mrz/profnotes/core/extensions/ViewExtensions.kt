@@ -1,4 +1,4 @@
-package ru.mrz.profnotes.core
+package ru.mrz.profnotes.core.extensions
 
 import android.view.View
 

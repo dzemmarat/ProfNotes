@@ -138,6 +138,7 @@
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/vpNewNotes"
                 android:layout_width="match_parent"
+                android:orientation="horizontal"
                 android:layout_height="136dp"
                 android:layout_marginTop="12dp" />
 

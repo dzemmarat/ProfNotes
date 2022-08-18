@@ -4,17 +4,15 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import ru.mrz.profnotes.data.model.MyNote
-import ru.mrz.profnotes.data.model.NewNote
-import ru.mrz.profnotes.databinding.ItemNewNoteBinding
+import ru.mrz.profnotes.data.model.LocalNote
 import ru.mrz.profnotes.databinding.ItemNoteBinding
 
 class MyNotesAdapter : RecyclerView.Adapter<MyNotesAdapter.ViewHolder>() {
-    private var items = emptyList<MyNote>()
+    private var items = emptyList<LocalNote>()
 
     inner class ViewHolder(private val binding: ItemNoteBinding) :
         RecyclerView.ViewHolder(binding.root) {
-            fun bind(item: MyNote){
+            fun bind(item: LocalNote){
                 with(binding) {
                     tvNoteTitle.text = item.title
                     tvNoteDescription.text = item.description
@@ -33,7 +31,7 @@ class MyNotesAdapter : RecyclerView.Adapter<MyNotesAdapter.ViewHolder>() {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setItems(newItems: List<MyNote>) {
+    fun setItems(newItems: List<LocalNote>) {
         items = newItems
         notifyDataSetChanged()
     }

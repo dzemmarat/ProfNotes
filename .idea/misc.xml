@@ -7,6 +7,7 @@
         <entry key="..\:/ProfNotes/app/src/main/res/drawable/bg_button.xml" value="0.3425" />
         <entry key="..\:/ProfNotes/app/src/main/res/drawable/bg_button_disabled.xml" value="0.364" />
         <entry key="..\:/ProfNotes/app/src/main/res/drawable/bg_button_enabled.xml" value="0.364" />
+        <entry key="..\:/ProfNotes/app/src/main/res/drawable/bg_fab.xml" value="0.33" />
         <entry key="..\:/ProfNotes/app/src/main/res/drawable/bg_login_edit_text.xml" value="0.129" />
         <entry key="..\:/ProfNotes/app/src/main/res/drawable/bg_new_note.xml" value="0.324" />
         <entry key="..\:/ProfNotes/app/src/main/res/drawable/bg_rounded_card.xml" value="0.364" />
@@ -20,15 +21,15 @@
         <entry key="..\:/ProfNotes/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.25" />
         <entry key="..\:/ProfNotes/app/src/main/res/drawable/ic_logo.xml" value="0.25" />
         <entry key="..\:/ProfNotes/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.252" />
-        <entry key="..\:/ProfNotes/app/src/main/res/layout/activity_main.xml" value="0.16835016835016836" />
+        <entry key="..\:/ProfNotes/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/ProfNotes/app/src/main/res/layout/activity_splash.xml" value="0.371875" />
         <entry key="..\:/ProfNotes/app/src/main/res/layout/fragment_dashboard.xml" value="0.23257328990228013" />
-        <entry key="..\:/ProfNotes/app/src/main/res/layout/fragment_home.xml" value="0.23257328990228013" />
-        <entry key="..\:/ProfNotes/app/src/main/res/layout/fragment_login.xml" value="0.2" />
+        <entry key="..\:/ProfNotes/app/src/main/res/layout/fragment_home.xml" value="0.15" />
+        <entry key="..\:/ProfNotes/app/src/main/res/layout/fragment_login.xml" value="0.12532894736842104" />
         <entry key="..\:/ProfNotes/app/src/main/res/layout/fragment_login2.xml" value="0.23257328990228013" />
         <entry key="..\:/ProfNotes/app/src/main/res/layout/fragment_login_test.xml" value="0.23257328990228013" />
         <entry key="..\:/ProfNotes/app/src/main/res/layout/fragment_splash.xml" value="0.371875" />
-        <entry key="..\:/ProfNotes/app/src/main/res/layout/item_new_note.xml" value="0.24136807817589576" />
+        <entry key="..\:/ProfNotes/app/src/main/res/layout/item_new_note.xml" value="0.25" />
         <entry key="..\:/ProfNotes/app/src/main/res/layout/item_note.xml" value="0.23421052631578948" />
         <entry key="..\:/ProfNotes/app/src/main/res/menu/bottom_nav_menu.xml" value="0.3859375" />
         <entry key="..\:/ProfNotes/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.25" />

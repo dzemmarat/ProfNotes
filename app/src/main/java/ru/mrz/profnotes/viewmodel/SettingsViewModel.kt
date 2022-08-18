@@ -1,4 +1,4 @@
-package ru.mrz.profnotes.ui.settings
+package ru.mrz.profnotes.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

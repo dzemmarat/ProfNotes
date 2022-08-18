@@ -6,12 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
+import dagger.hilt.android.AndroidEntryPoint
 import ru.mrz.profnotes.databinding.FragmentNotificationsBinding
+import ru.mrz.profnotes.viewmodel.SettingsViewModel
 
+@AndroidEntryPoint
 class SettingsFragment : Fragment() {
 
     private var _binding: FragmentNotificationsBinding? = null
+    private val settingsViewModel: SettingsViewModel by viewModels()
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,9 +27,6 @@ class SettingsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val settingsViewModel =
-            ViewModelProvider(this).get(SettingsViewModel::class.java)
-
         _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
