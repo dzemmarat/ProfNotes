@@ -7,12 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.MarginPageTransformer
+import dagger.hilt.android.AndroidEntryPoint
 import ru.mrz.profnotes.data.model.MyNote
 import ru.mrz.profnotes.data.model.NewNote
 import ru.mrz.profnotes.databinding.FragmentHomeBinding
 import ru.mrz.profnotes.ui.home.adapter.MyNotesAdapter
 import ru.mrz.profnotes.ui.home.adapter.NewNotesAdapter
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
