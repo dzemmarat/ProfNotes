@@ -4,11 +4,14 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import ru.mrz.profnotes.MainActivity
+import ru.mrz.profnotes.data.model.util.ResponseWrapper
 import ru.mrz.profnotes.viewmodel.SplashViewModel
 
 @AndroidEntryPoint
@@ -18,13 +21,6 @@ class SplashActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        Toast.makeText(
-            this,
-            viewModel.getIsFirstEnter().toString(),
-            Toast.LENGTH_LONG
-        ).show()
-        viewModel.setIsFirstEnter(false)
 
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)

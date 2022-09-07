@@ -12,7 +12,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import ru.mrz.profnotes.BuildConfig
-import ru.mrz.profnotes.data.network.api.NotesApi
+import ru.mrz.profnotes.data.network.api.NoteApi
 import ru.mrz.profnotes.data.network.api.RegisterApi
 import ru.mrz.profnotes.data.network.interceptor.AuthenticationInterceptor
 import java.util.concurrent.TimeUnit
@@ -85,8 +85,8 @@ object NetworkModule {
 
     @Provides
     fun provideNotesApi(
-        @Named(AUTH_OKHTTP_CLIENT) retrofit: Retrofit,
-    ) = retrofit.create(NotesApi::class.java)
+        @Named(WITHOUT_AUTH_OKHTTP_CLIENT) retrofit: Retrofit,
+    ) = retrofit.create(NoteApi::class.java)
 
     @Provides
     fun provideRegisterApi(
