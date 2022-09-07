@@ -1,39 +1,49 @@
 package ru.mrz.profnotes.ui.home
 
-import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.viewpager2.widget.MarginPageTransformer
 import dagger.hilt.android.AndroidEntryPoint
 import ru.mrz.profnotes.data.model.MyNote
 import ru.mrz.profnotes.data.model.NewNote
+import ru.mrz.profnotes.data.model.util.ResponseWrapper
 import ru.mrz.profnotes.databinding.FragmentHomeBinding
+import ru.mrz.profnotes.ui.core.BaseFragment
 import ru.mrz.profnotes.ui.home.adapter.MyNotesAdapter
 import ru.mrz.profnotes.ui.home.adapter.NewNotesAdapter
+import ru.mrz.profnotes.viewmodel.HomeViewModel
 
 @AndroidEntryPoint
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
 
-    private var _binding: FragmentHomeBinding? = null
-    private val binding get() = _binding!!
+    override fun inflateViewBinding(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+    ) = FragmentHomeBinding.inflate(inflater, container, false)
+
+    override val viewModel by viewModels<HomeViewModel>()
 
     private val viewPagerAdapter by lazy { NewNotesAdapter() }
     private val myNotesAdapter by lazy { MyNotesAdapter() }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?,
-    ): View {
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onStart() {
-        super.onStart()
+    override fun setupViews() {
+        lifecycleScope.launchWhenStarted {
+            viewModel.note.collect {
+                when (it) {
+                    is ResponseWrapper.Idle -> {}
+                    is ResponseWrapper.Error -> {
+                        Log.e("Error", "${it.code}")
+                    }
+                    is ResponseWrapper.Success -> {
+                        Log.e("Success", "${it.body}")
+                    }
+                }
+            }
+        }
+        viewModel.getNote()
         setupPager()
         setupMyNotes()
     }
@@ -70,10 +80,5 @@ class HomeFragment : Fragment() {
 
             vpNewNotes.adapter = viewPagerAdapter
         }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

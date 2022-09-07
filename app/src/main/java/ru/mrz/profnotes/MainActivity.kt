@@ -5,6 +5,7 @@ import android.os.PersistableBundle
 import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isGone
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -36,6 +37,10 @@ class MainActivity : AppCompatActivity() {
             R.id.navigation_home, R.id.navigation_settings))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+
+    fun showLoading(value: Boolean) {
+        binding.loadingLayout.isGone = !value
     }
 
     override fun onStart() {

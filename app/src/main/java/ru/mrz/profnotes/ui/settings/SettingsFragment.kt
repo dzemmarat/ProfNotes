@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import dagger.hilt.android.AndroidEntryPoint
 import ru.mrz.profnotes.databinding.FragmentNotificationsBinding
+import ru.mrz.profnotes.viewmodel.SettingsViewModel
 
 @AndroidEntryPoint
 class SettingsFragment : Fragment() {
